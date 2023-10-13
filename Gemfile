@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Use sidekiq for background processing
+gem 'sidekiq', '~> 7.1', '>= 7.1.2'
