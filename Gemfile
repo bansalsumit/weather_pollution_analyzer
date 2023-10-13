@@ -73,3 +73,5 @@ end
 
 # Use sidekiq for background processing
 gem 'sidekiq', '~> 7.1', '>= 7.1.2'
+# Enables to set jobs to be run in specified time (using CRON notation)
+gem 'sidekiq-cron', '~> 1.10', '>= 1.10.1'
