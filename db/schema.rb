@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_100616) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_13_122138) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "air_quality_metrics", force: :cascade do |t|
+    t.float "aqi"
+    t.float "co"
+    t.float "no"
+    t.float "no2"
+    t.float "o3"
+    t.float "so2"
+    t.float "pm2_5"
+    t.float "pm10"
+    t.float "nh3"
+    t.float "dt"
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_air_quality_metrics_on_location_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.text "lat"
