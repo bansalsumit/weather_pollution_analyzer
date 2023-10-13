@@ -1,9 +1,9 @@
 require 'csv'
 
 namespace :location do
-  desc "Generate cities data"
+  desc 'Generate cities data'
   task generate_cities: :environment do
-    file_path = Rails.root.join('tmp'+'/cities.csv')
+    file_path = Rails.root.join('tmp/cities.csv')
     csv_text = File.read(file_path)
     csv = CSV.parse(csv_text, :headers => true)
     errors = []
