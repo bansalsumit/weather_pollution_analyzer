@@ -1,0 +1,7 @@
+refresh_air_quality_metric_in_every_1_hour:
+  cron: '0 * * * *' # execute at every 1 hour
+  class: 'RefreshAirQualityMetric'
+
+refresh_air_quality_metric_in_every_2_seconds:
+  cron: '*/2 * * * * *' # execute at every 10 seconds
+  class: 'RefreshAirQualityMetric'
