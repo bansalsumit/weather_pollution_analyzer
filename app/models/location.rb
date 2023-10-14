@@ -30,7 +30,7 @@ class Location < ApplicationRecord
     query = query.where('name ilike ?', "%#{city}%") if city.present?
     query = query.where('air_quality_metrics.created_at >= ?', start_date ) if start_date.present?
     query = query.where('air_quality_metrics.created_at <= ?', end_date ) if end_date.present?
-    query.group('locations.id', "DATE_TRUNC('month', air_quality_metrics.created_at)")
+    query.group('locations.id', 'locations.name', "DATE_TRUNC('month', air_quality_metrics.created_at)")
     .average('air_quality_metrics.aqi')
   end
 
@@ -40,7 +40,7 @@ class Location < ApplicationRecord
   def self.average_aqi_per_state(state=nil)
     query = Location.includes(:air_quality_metrics)
     query = query.where('state ilike ?', "%#{state}%") if state.present?
-    query.group('locations.state').average('air_quality_metrics.aqi')
+    query.group('locations.id, locations.state').average('air_quality_metrics.aqi')
   end
 
   private

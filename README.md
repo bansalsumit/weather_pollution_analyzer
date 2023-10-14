@@ -15,6 +15,8 @@ A rails application to fetch, import, and store air pollution data for different
 * [Abbrevations](#abbrevations)
 * [Setup Demo Data](#setup-demo-data)
 * [Features](#features)
+* [Background jobs](#background-jobs)
+* [Queries Example](#queries-example)
 * [Other information](#other-information)
 
 ## Setup System
@@ -40,6 +42,20 @@ Check all the abbrevations used in code at abbrevations file in root path.
 * To generate air pollution data: `bundle exec rake air_quality_metrics:import`
 
 ## Features
+
+## Background jobs
+* Sidekiq used
+* To execute jobs: `bundle exec sidekiq`
+
+## Queries Example
+* In rails console, execute below commands:
+* aqi: air quality index
+* for getting average aqi per location: `Location.average_aqi_per_location`
+* for getting average aqi particular location: `Location.average_aqi_per_location('delh')`
+* for getting average aqi per state: `Location.average_aqi_per_state`
+* for getting average aqi particular state: `Location.average_aqi_per_state('west')`
+* for getting average aqi per month per location: `Location.average_aqi_per_state`
+* for getting average aqi particular month per location: `Location.average_aqi_per_month_per_location(start_date: 2.months.ago, end_date: 1.months.ago)`
 
 
 ## Other information
