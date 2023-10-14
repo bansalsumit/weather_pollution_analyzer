@@ -10,11 +10,12 @@ namespace :location do
     csv.each do |row|
       begin
         data = OpenWeatherMap::FetchGeocoordinateApi.call(row.to_h)
-        location = Location.create!(lat: data['lat'], long: data['lon'], name: data['name'])
+        location = Location.create!(lat: data['lat'], long: data['lon'], name: data['name'], state: data['state'])
       rescue => exception
         errors << [row, exception.message]
       end
     end
-    print errors
+    # Write now errors come because of city, state mismatch for some cities
+    print errors if errors.present?
   end
 end
