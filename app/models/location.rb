@@ -11,18 +11,36 @@ class Location < ApplicationRecord
   # Callbacks
   before_destroy :check_associated_models
 
-  def self.average_aqi_per_location
-    Location.includes(:air_quality_metrics).group('locations.id').average('air_quality_metrics.aqi')
+  # Query: to find average average quality index per location for:
+  # to get all location wise
+  # to get for particular city
+  def self.average_aqi_per_location(city=nil)
+    query = Location.includes(:air_quality_metrics)
+    query = query.where('name ilike ?', "%#{city}%") if city.present?
+    query.group('locations.id').average('air_quality_metrics.aqi')
   end
 
-  def self.average_aqi_per_month_per_location
-    Location.includes(:air_quality_metrics)
-    .group('locations.id', "DATE_TRUNC('month', air_quality_metrics.created_at)")
+  # Query: to find average average quality index per month per location for:
+  # to get all location wise
+  # to get for particular city
+  # to get for particular start_date
+  # to get for particular end_date
+  def self.average_aqi_per_month_per_location(city: nil, start_date: nil, end_date: nil)
+    query = Location.includes(:air_quality_metrics)
+    query = query.where('name ilike ?', "%#{city}%") if city.present?
+    query = query.where('air_quality_metrics.created_at >= ?', start_date ) if start_date.present?
+    query = query.where('air_quality_metrics.created_at <= ?', end_date ) if end_date.present?
+    query.group('locations.id', "DATE_TRUNC('month', air_quality_metrics.created_at)")
     .average('air_quality_metrics.aqi')
   end
 
-  def self.average_aqi_per_state
-    Location.includes(:air_quality_metrics).group('locations.state').average('air_quality_metrics.aqi')
+  # Query: to find average average quality index per state for:
+  # to get all location wise
+  # to get for particular state
+  def self.average_aqi_per_state(state=nil)
+    query = Location.includes(:air_quality_metrics)
+    query = query.where('state ilike ?', "%#{state}%") if state.present?
+    query.group('locations.state').average('air_quality_metrics.aqi')
   end
 
   private
