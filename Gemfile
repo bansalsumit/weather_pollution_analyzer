@@ -70,6 +70,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'shoulda-matchers', '~> 5.3'
 end
 
 # Use sidekiq for background processing
