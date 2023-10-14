@@ -1,62 +1,47 @@
-# README
+# Weather Pollution Analyzer
+A rails application to fetch, import, and store air pollution data for different cities across India.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies
 
-Things you may want to cover:
+* Ruby 3.2.2
 
-* Ruby version
+* Rails 7.0.4
 
-* System dependencies
+## Table of contents
+* [Weather Pollution Analyzer](#weather-pollution-analyzer)
+* [Technologies](#technologies)
+* [Setup System](#setup-system)
+* [System dependencies](#system-dependencies)
+* [Abbrevations](#abbrevations)
+* [Setup Demo Data](#setup-demo-data)
+* [Features](#features)
+* [Other information](#other-information)
 
-* Configuration
+## Setup System
+To run this project:
 
-* Database creation
+```
+$ git clone git@github.com:bansalsumit/weather_pollution_analyzer.git
+$ cd ./weather_pollution_analyzer
+$ rvm install 3.2.2
+$ bundle install
+```
 
-* Database initialization
+## System dependencies
+* Need postgres intalled
+* Need redis installed
+* Get master key from admin to access credentials
 
-* How to run the test suite
+## Abbrevations
+Check all the abbrevations used in code at abbrevations file in root path.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup Demo Data
+* To generate locations: `bundle exec rake location:generate_cities`
+* To generate air pollution data: `bundle exec rake air_quality_metrics:import`
 
-* Deployment instructions
+## Features
 
-* ...
-**************************
-Ruby version: 3.2.2
---------------------------
 
-**************************
-System dependencies
-**************************
-Need postgres intalled
-Need redis installed
-Get master key from admin to access credentials
---------------------------
-
-**************************
-Setup System (Initial commands)
-**************************
-1. git clone git@github.com:bansalsumit/weather_pollution_analyzer.git
-2. cd ./weather_pollution_analyzer
-3. bundle install
---------------------------
-
-**************************
-Abbrevations
-**************************
-Check all the abbrevations used in code at abbrevations file.
---------------------------
-
-**************************
-To Load cities data like lat, long by executing below command
-**************************
-Add cities.csv file in tmp directory
-execute command: 'bundle exec rake location:generate_cities'
---------------------------
-
-**************************
-To Load current air pollution data for the locations.
-**************************
-execute command: 'bundle exec rake air_quality_metrics:import'
---------------------------
+## Other information
+* Author - Sumit Bansal
+* Github - https://github.com/bansalsumit
