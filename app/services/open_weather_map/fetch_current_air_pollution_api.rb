@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenWeatherMap
   class FetchCurrentAirPollutionApi < BaseService
     def initialize(params={})

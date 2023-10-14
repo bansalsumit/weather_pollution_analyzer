@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenWeatherMap
   class FetchGeocoordinateApi < BaseService
     def initialize(params={})
@@ -6,9 +8,15 @@ module OpenWeatherMap
     end
 
     def call
-      api_params = {q: @params.values.join(',')}
-      response = OpenWeatherMap::HttpRequest.get_response(GEOCODE_URL, 'post', api_params, nil)
+      api_params = encode_for_api(@params)
+      response = OpenWeatherMap::HttpRequest.get_response(GEOCODE_URL, 'get', api_params, nil)
       response&.first
+    end
+
+    private
+
+    def encode_for_api(data)
+      { q: data.values.join(',') }
     end
   end
 end

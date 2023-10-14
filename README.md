@@ -24,24 +24,39 @@ Things you may want to cover:
 * ...
 **************************
 Ruby version: 3.2.2
+--------------------------
 
-
+**************************
 System dependencies
 **************************
 Need postgres intalled
+Need redis installed
 Get master key from admin to access credentials
+--------------------------
 
+**************************
 Setup System (Initial commands)
 **************************
 1. git clone git@github.com:bansalsumit/weather_pollution_analyzer.git
 2. cd ./weather_pollution_analyzer
 3. bundle install
+--------------------------
 
+**************************
 Abbrevations
 **************************
 Check all the abbrevations used in code at abbrevations file.
+--------------------------
 
-First Load cities data like lat, long by executing below command
+**************************
+To Load cities data like lat, long by executing below command
 **************************
 Add cities.csv file in tmp directory
-bundle exec rake location:generate_cities
+execute command: 'bundle exec rake location:generate_cities'
+--------------------------
+
+**************************
+To Load current air pollution data for the locations.
+**************************
+execute command: 'bundle exec rake air_quality_metrics:import'
+--------------------------

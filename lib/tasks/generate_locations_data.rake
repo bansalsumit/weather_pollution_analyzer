@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'csv'
 
 namespace :location do
@@ -18,7 +19,7 @@ namespace :location do
         errors << [row, exception.message]
       end
     end
-    # Write now errors come because of city, state mismatch for some cities
+    # NOTE: Write now errors come because of city, state mismatch for some cities
     print errors if errors.present?
   end
 end
