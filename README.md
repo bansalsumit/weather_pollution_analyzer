@@ -1,5 +1,5 @@
 # Weather Pollution Analyzer
-A rails application to fetch, import, and store air pollution data for different cities across India.
+A rails application for Importing and Analyzing Air Pollution Data for different cities across India.
 
 ## Technologies
 
@@ -18,6 +18,7 @@ A rails application to fetch, import, and store air pollution data for different
 * [Background jobs](#background-jobs)
 * [Queries Example](#queries-example)
 * [Rspec test cases](#rspec-test-cases)
+* [External API References](#external-api-references)
 * [Other information](#other-information)
 
 ## Setup System
@@ -42,7 +43,12 @@ Check all the abbrevations used in code at abbrevations file in root path.
 * To generate locations: `bundle exec rake location:generate_cities`
 * To generate air pollution data: `bundle exec rake air_quality_metrics:import_current_air_pollution`
 * To generate air pollution history data: `bundle exec rake air_quality_metrics:import_air_pollution_hostory`
+
 ## Features
+* Able to fetch Geocoordinates, Current Air Polltuin Data and Air Polltuin History per location from open weather map API.
+* Able to run Current Air Polltuion Data in background.
+* Able to do Analytics like: access air quality, average air quality index by city, state and date combination.
+* Used test suites to increase Quality and Reliability of software.
 
 ## Background jobs
 * Sidekiq used
@@ -65,6 +71,16 @@ air_quality_metric.assess_air_quality
 
 ## Rspec test cases
 * to execute rspec test suites: `bundle exec rspec`
+
+## External API References
+
+The following external APIs were used in this project to fetch pollution data:
+
+- [OpenWeatherMap API](https://openweathermap.org/api): Used to retrieve current air pollution, air pollution history, geocoordinate-related data.
+
+  - **How it was used:** The OpenWeatherMap API was integrated to obtain air compositions, including SO2, O3, and NO2 etc.
+
+  - **API Key:** To obtain API key use: https://home.openweathermap.org/api_keys
 
 ## Other information
 * Author - Sumit Bansal
