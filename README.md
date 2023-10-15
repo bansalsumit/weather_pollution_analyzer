@@ -69,8 +69,8 @@ air_quality_metric.assess_air_quality
 * for getting average aqi particular location: `Location.average_aqi_per_location('delh')`
 * for getting average aqi per state: `Location.average_aqi_per_state`
 * for getting average aqi particular state: `Location.average_aqi_per_state('west')`
-* for getting average aqi per month per location: `Location.average_aqi_per_state`
-* for getting average aqi particular month per location: `Location.average_aqi_per_month_per_location(start_date: 2.months.ago, end_date: 1.months.ago)`
+* for getting average aqi per month per location: `Location.average_aqi_per_month_per_location`
+* for getting average aqi particular month per location: `Location.average_aqi_per_month_per_location(start_date: 2.months.ago)`
 
 ## Rspec test cases
 * to execute rspec test suites: `bundle exec rspec`
