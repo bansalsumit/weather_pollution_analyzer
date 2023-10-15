@@ -17,6 +17,7 @@ A rails application to fetch, import, and store air pollution data for different
 * [Features](#features)
 * [Background jobs](#background-jobs)
 * [Queries Example](#queries-example)
+* [Rspec test cases](#rspec-test-cases)
 * [Other information](#other-information)
 
 ## Setup System
@@ -57,6 +58,8 @@ Check all the abbrevations used in code at abbrevations file in root path.
 * for getting average aqi per month per location: `Location.average_aqi_per_state`
 * for getting average aqi particular month per location: `Location.average_aqi_per_month_per_location(start_date: 2.months.ago, end_date: 1.months.ago)`
 
+## Rspec test cases
+* to execute rspec test suites: `bundle exec rspec`
 
 ## Other information
 * Author - Sumit Bansal
