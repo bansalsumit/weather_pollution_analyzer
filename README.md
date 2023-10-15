@@ -7,6 +7,8 @@ A rails application for Importing and Analyzing Air Pollution Data for different
 
 * Rails 7.0.4
 
+* PostgreSQL
+
 ## Table of contents
 * [Weather Pollution Analyzer](#weather-pollution-analyzer)
 * [Technologies](#technologies)
@@ -37,9 +39,10 @@ $ bundle install
 * Get master key from admin to access credentials
 
 ## Abbrevations
-Check all the abbrevations used in code at abbrevations file in root path.
+Check all the abbrevations used in code at **abbrevations** file in root path.
 
 ## Setup Demo Data
+* First Ensure **cities.csv** file should be present in root folder
 * To generate locations: `bundle exec rake location:generate_cities`
 * To generate air pollution data: `bundle exec rake air_quality_metrics:import_current_air_pollution`
 * To generate air pollution history data: `bundle exec rake air_quality_metrics:import_air_pollution_hostory`

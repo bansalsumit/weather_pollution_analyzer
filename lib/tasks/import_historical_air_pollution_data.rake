@@ -3,7 +3,9 @@
 require_relative '../../app/helpers/date_helper.rb'
 
 namespace :air_quality_metrics do
+  # Macros
   include DateHelper
+
   desc 'Import historical air pollution data'
   task import_air_pollution_hostory: :environment do
     # Load locations in batch of 1000

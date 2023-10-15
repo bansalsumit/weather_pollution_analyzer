@@ -4,7 +4,7 @@ require 'net/http'
 
 module OpenWeatherMap
   class HttpRequest
-    # TODO: Do changes to handle POST request
+    # TODO: Need changes to handle POST request
     def self.get_response(url, method, params, api_log_object)
       uri = URI(url)
       params[:appid] = Rails.application.credentials.open_weather_map[:appid]
