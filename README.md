@@ -51,6 +51,11 @@ Check all the abbrevations used in code at abbrevations file in root path.
 ## Queries Example
 * In rails console, execute below commands:
 * aqi: air quality index
+* Evaluate air quality for first object in rails console:
+```
+air_quality_metric = AirQualityMetric.first
+air_quality_metric.assess_air_quality
+```
 * for getting average aqi per location: `Location.average_aqi_per_location`
 * for getting average aqi particular location: `Location.average_aqi_per_location('delh')`
 * for getting average aqi per state: `Location.average_aqi_per_state`
