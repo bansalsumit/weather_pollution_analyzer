@@ -69,8 +69,14 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # Use rspec-rails as a testing framework.
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  # Use shoulda-matchers for running one-liners to test common Rails functionality
   gem 'shoulda-matchers', '~> 5.3'
+  # Use vcr to Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
+  gem 'vcr', '~> 6.2'
+  # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests.
+  gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
 
 # Use sidekiq for background processing
