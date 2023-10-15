@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/geo/1.0/direct?appid=bc755a7337ca6695a9f4574b9df13340&limit=10&q=Mumbai,Maharashtra,IN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 15 Oct 2023 07:50:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '900'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/geo/1.0/direct?limit=10&q=mumbai%2cmaharashtra%2cin"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sibmFtZSI6Ik11bWJhaSIsImxvY2FsX25hbWVzIjp7Im1sIjoi4LSu4LWB4LSC4LSs4LWIIiwic2siOiJCb21iYWoiLCJydSI6ItCc0YPQvNCx0LDQuCIsImFyIjoi2YXZiNmF2KjYp9mKIiwiZXMiOiJCb21iYXkiLCJ5aSI6Itee15XXnteR15nXmSIsImNzIjoiQm9tYmFqIiwia28iOiLrrYTrsJTsnbQiLCJwbCI6Ik11bWJhaiIsImd1Ijoi4Kqu4KuB4KqC4Kqs4KqIIiwibXIiOiLgpK7gpYHgpILgpKzgpIgiLCJ1ayI6ItCc0YPQvNCx0LDRlyIsInNpIjoi4La44LeU4La44LeK4La24LeP4La64LeSIiwiaW8iOiJNdW1iYWkiLCJwcyI6ItmF2YXYqNin24wiLCJqYSI6IuODoOODs+ODkOOCpCIsImtzIjoi2KjZjtmF2KjZjtuSIiwiaGkiOiLgpK7gpYHgpILgpKzgpIgiLCJ0YSI6IuCuruCvgeCuruCvjeCuquCviCIsInRlIjoi4LCu4LGB4LCC4LCs4LGIIiwiaGUiOiLXnteV157XkdeQ15kiLCJlbCI6Is6czr/Phc68z4DOrM65IiwiZW8iOiJNdW1iYWpvIiwic2QiOiLZhdmF2KjYptmKIiwicGEiOiLgqK7gqYHgqbDgqKzgqIgiLCJmciI6IkJvbWJheSIsImx0IjoiTXVtYmFqdXMiLCJzciI6ItCc0YPQvNCx0LDRmCIsImVuIjoiTXVtYmFpIiwiYm4iOiLgpq7gp4Hgpq7gp43gpqzgpociLCJ1ciI6ItmF2YXYqNim24wiLCJkZSI6Ik11bWJhaSIsIm9yIjoi4Kyu4K2B4Kyu4K2N4Kys4Ky+4KyHIiwia24iOiLgsq7gs4HgsoLgsqzgs4giLCJ6aCI6IuWtn+S5sCIsImlhIjoiTXVtYmFpIiwib2MiOiJNdW1iYWkiLCJmYSI6ItmF2YjZhdio2KfbjCIsImF6IjoiTXVtYmF5IiwidGgiOiLguKHguLjguKHguYTguJoiLCJrYSI6IuGDm+GDo+GDm+GDkeGDkOGDmCJ9LCJsYXQiOjE5LjA3ODU0NTEsImxvbiI6NzIuODc4MTc2LCJjb3VudHJ5IjoiSU4iLCJzdGF0ZSI6Ik1haGFyYXNodHJhIn1d
+  recorded_at: Sun, 15 Oct 2023 07:50:45 GMT
+recorded_with: VCR 6.2.0
