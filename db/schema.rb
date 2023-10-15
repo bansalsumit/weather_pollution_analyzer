@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_14_040400) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_15_064420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,10 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_040400) do
     t.float "pm2_5"
     t.float "pm10"
     t.float "nh3"
-    t.float "dt"
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "dt"
     t.index ["location_id"], name: "index_air_quality_metrics_on_location_id"
   end
 
