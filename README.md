@@ -40,8 +40,8 @@ Check all the abbrevations used in code at abbrevations file in root path.
 
 ## Setup Demo Data
 * To generate locations: `bundle exec rake location:generate_cities`
-* To generate air pollution data: `bundle exec rake air_quality_metrics:import`
-
+* To generate air pollution data: `bundle exec rake air_quality_metrics:import_current_air_pollution`
+* To generate air pollution history data: `bundle exec rake air_quality_metrics:import_air_pollution_hostory`
 ## Features
 
 ## Background jobs
