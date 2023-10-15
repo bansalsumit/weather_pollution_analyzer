@@ -6,8 +6,8 @@ namespace :location do
   task generate_cities: :environment do
     # Get the logger for the current class or module
     logger = Rails.logger
-
     logger.info "Processing the import cities geocoordinates data request start.........."
+
     # Load cities csv file
     file_path = Rails.root.join('cities.csv')
     csv_text = File.read(file_path)

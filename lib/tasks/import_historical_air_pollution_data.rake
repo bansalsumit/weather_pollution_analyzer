@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require_relative '../../app/helpers/date_helper.rb'
 
 namespace :air_quality_metrics do
@@ -8,10 +7,15 @@ namespace :air_quality_metrics do
 
   desc 'Import historical air pollution data'
   task import_air_pollution_hostory: :environment do
-    # Load locations in batch of 1000
+    # Get the logger for the current class or module
+    logger = Rails.logger
+    logger.info "Processing the import air pollution history data request start.........."
+
     errors = []
     start_date = 1.years.ago
     end_date = start_date + 3.hours
+
+    # Iterate on locations, Load locations in batch of 1000
     Location.find_each do |location|
       params = {
         lat: location.lat,
@@ -25,6 +29,7 @@ namespace :air_quality_metrics do
         data = OpenWeatherMap::FetchHistoricalAirPollutionDataApi.call(params)
         if data.present?
           data['list'].each do |air_pollution_data|
+            # Create Air Quality Metric
             air_quality_metric = AirQualityMetric.new(air_pollution_data.dig('components'))
             air_quality_metric.location = location
             air_quality_metric.aqi = air_pollution_data.dig('main', 'aqi')
@@ -38,10 +43,20 @@ namespace :air_quality_metrics do
       rescue => exception
         errors << [location.name, exception.message]
       end
+
       start_date += 1.months
       end_date = start_date + 3.hours
     end
-    # NOTE: print the errors
-    print errors if errors.present?
+
+    if errors.present?
+      logger.error('Errors occurred during Air Pollution History data generation:')
+      errors.each do |error|
+        logger.error("City: #{error[0]}, Error: #{error[1]}")
+      end
+      # Notify about errors to admin
+      # FIXME: It need some change
+      AdminMailer.error_notification('Errors occurred during Air Pollution History data generation', errors).deliver_now
+    end
+    logger.info "Processing the import air pollution history data request closed.........."
   end
 end

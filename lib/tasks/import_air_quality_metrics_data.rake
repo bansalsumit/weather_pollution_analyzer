@@ -9,8 +9,8 @@ namespace :air_quality_metrics do
   task import_current_air_pollution: :environment do
     # Get the logger for the current class or module
     logger = Rails.logger
-
     logger.info "Processing the import air quality metrics data request start.........."
+
     errors = []
 
     # Iterate on locations, Load locations in batch of 1000
