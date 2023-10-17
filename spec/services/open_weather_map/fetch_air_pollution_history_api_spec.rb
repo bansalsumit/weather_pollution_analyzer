@@ -5,7 +5,7 @@ require 'rails_helper'
 
 RSpec.describe OpenWeatherMap::FetchHistoricalAirPollutionDataApi do
   describe 'fetch air pollution history api' do
-    it 'Should fetch air pollution history' do
+    it 'Should get 200 response status' do
       VCR.use_cassette('fetch_air_pollution_history_api') do
         uri = URI(AIR_POLLUTION_HISTORY_URL)
         params = {
